@@ -1,4 +1,5 @@
 Primeras pruebas en blazor
+
 1-Crear logica de conexión, modelo y datos , lógica de negocio, y finalmente Vista en pagina blazor, se mostrará una tabla donde se muestran unas deudas que fueron reales con los intereses calculados a dia de hoy.
 Actualmente en fase de pruebas
 
