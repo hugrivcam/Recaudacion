@@ -1,0 +1,54 @@
+﻿@page "/recauda_demo"
+
+<PageTitle>Lista de Deudas con intereses calculados</PageTitle>
+<!--@using Recaudacion.Data;-->
+@using Recaudacion.modelos;
+@using Recaudacion.Negocio;
+@inject NInteresesServicio ServInteres;
+ 
+<h1>Demo recaudación</h1>
+
+@if (ListaRecibos != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Providencia</th>
+                <th>Principal</th>
+                <th>Recargo</th>
+                <th>Costas</th>
+                <th>Ingresos</th>
+                <th>Intereses</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var providencia in ListaRecibos)
+            {
+                <tr>
+                    <td>@providencia.Num_Recibo</td>
+                    <td>@providencia.Principal</td>
+                    <td>@providencia.Recargo</td>
+                    <td>@providencia.Costas</td>
+                    <td>@providencia.Ingresos+@providencia.Ingresos_Zona+@providencia.Ingresos_Datados</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+}
+else
+{
+  <p><em>Cargando Datos...</em></p>  
+}
+
+@code{
+
+    private MReciboInteres[]? ListaRecibos;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        listaRecibos = await ServInteres.ListarConInteresPaginado(1,20,"where principal < 100")  ; //obtengo 10 recibos
+    }
+
+}

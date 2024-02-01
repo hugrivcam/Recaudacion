@@ -1,11 +1,23 @@
-﻿@page "/recauda_demo"
+﻿
 @model Recaudacion.Pages.IndexModel
 
 @using Recaudacion.Data;
-
+@using Recaudacion.Negocio;
+@inject NInteresesServicio ServInteres;
+ 
 <h1>Demo recaudación</h1>
 
 @{
 
+}
 
+@{
+/*
+    private MReciboInteres[]? ListaRecibos;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        listaRecibos = await ServInteres.ListarConInteresPaginado(1,20,"where principal < 100")  ; //obtengo 10 recibos
+    }
+*/
 }

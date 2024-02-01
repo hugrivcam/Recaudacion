@@ -19,7 +19,8 @@ namespace Recaudacion.Data
 
 
         public Task<String[]> GetRecibosAsync(int num_recibos) {
-            return Task.FromResult(Enumerable.Range(1, num_recibos).Select(index => "hola " + index).ToArray());
+            return Task.FromResult(Enumerable.Range(1, num_recibos)
+                .Select(index => "hola " + index).ToArray());
         }
 
 
